@@ -20,8 +20,11 @@ namespace calc
             pult.SetCommand(1, new CalcHardCommand(calc));
             pult.SetChange(0, new CalcCancel(calc));
             Console.WriteLine("0");
-            string Oper= Console.ReadLine();
-            while(Oper!="")
+            string current = Console.ReadLine();
+            pult.SetCurrent(int.Parse(current));
+            string Oper = Console.ReadLine();
+
+            while (Oper != "")
             {
                 string Number = " ";
                 switch (Oper)
@@ -55,7 +58,7 @@ namespace calc
                 }
                 Oper = Console.ReadLine();
             }
-            
+
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace calc
 {
@@ -22,7 +23,7 @@ namespace calc
 
         public int Plus(int Introduced)
         {
-            Current = Current+Introduced;
+            Current = Current + Introduced;
             return Current;
         }
         public int Minus(int Introduced)
@@ -32,7 +33,7 @@ namespace calc
         }
         public int Multiplication(int Introduced)
         {
-            Current = Current*Introduced;
+            Current = Current * Introduced;
             return Current;
         }
         public int Division(int Introduced)
@@ -45,23 +46,23 @@ namespace calc
             Current = current;
         }
 
-        
+
     }
-    class CalcSimpleCommand:Icommand
+    class CalcSimpleCommand : Icommand
     {
         private Calc calc;
         public CalcSimpleCommand(Calc calc) => this.calc = calc;
         public int Positive(int Introduced) => calc.Plus(Introduced);
         public int Negative(int Introduced) => calc.Minus(Introduced);
     }
-    class CalcHardCommand:Icommand
+    class CalcHardCommand : Icommand
     {
         private Calc calc;
         public CalcHardCommand(Calc calc) => this.calc = calc;
         public int Positive(int Introduced) => calc.Multiplication(Introduced);
         public int Negative(int Introduced) => calc.Division(Introduced);
     }
-    class CalcCancel:IChange
+    class CalcCancel : IChange
     {
         private Calc calc;
         public CalcCancel(Calc calc) => this.calc = calc;
@@ -87,7 +88,7 @@ namespace calc
             History = new List<int>();
             History.Add(0);
         }
-        public void SetCommand(int button,Icommand command) => commands[button] = command;
+        public void SetCommand(int button, Icommand command) => commands[button] = command;
         public void SetChange(int button, IChange Change) => changes[button] = Change;
 
         public void PressPlusMinus(int button)
@@ -112,7 +113,7 @@ namespace calc
         }
         public void PressMulDiv(int button)
         {
-            for (int i = History.Count-1;i>current;i--)
+            for (int i = History.Count - 1; i > current; i--)
             {
                 History.RemoveAt(i);
             }
@@ -126,7 +127,7 @@ namespace calc
             {
                 result = commands[1].Negative(Introduced);
                 History.Add(result);
-                Console.WriteLine(result);                
+                Console.WriteLine(result);
             }
             current++;
         }
@@ -135,17 +136,35 @@ namespace calc
 
             if (button == 1)
             {
-                Console.WriteLine(History[current-1]);
-                changes[0].Change(History[current - 1]);
-                current--;
-                //undo
+                if (current < 1)
+                {
+                    MessageBox.Show("Ошибка");
+                }
+                else
+                {
+                    Console.WriteLine(History[current - 1]);
+                    changes[0].Change(History[current - 1]);
+                    current--;
+                    //undo
+                }
             }
             else
             {
-                Console.WriteLine(History[current+1]);
-                changes[0].Change(History[current + 1]);
-                current++;
+                if (current >= History.Count - 1)
+                {
+                    MessageBox.Show("Ошибка");
+                }
+                else
+                {
+                    Console.WriteLine(History[current + 1]);
+                    changes[0].Change(History[current + 1]);
+                    current++;
+                }
             }
+        }
+        public void SetCurrent(int current)
+        {
+            changes[0].Change(current);
         }
     }
 }
