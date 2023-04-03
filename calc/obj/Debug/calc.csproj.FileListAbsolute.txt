@@ -6,3 +6,11 @@ D:\calc\calc\bin\Debug\calc.pdb
 D:\calc\calc\obj\Debug\calc.exe
 D:\calc\calc\obj\Debug\calc.pdb
 D:\calc\calc\obj\Debug\calc.csproj.AssemblyReference.cache
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\bin\Debug\calc.exe.config
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\bin\Debug\calc.exe
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\bin\Debug\calc.pdb
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\obj\Debug\calc.csproj.AssemblyReference.cache
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\obj\Debug\calc.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\obj\Debug\calc.csproj.CoreCompileInputs.cache
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\obj\Debug\calc.exe
+C:\Users\Vsevolod&Isterichka\Desktop\tipa git\PatternCalculator\calc\obj\Debug\calc.pdb

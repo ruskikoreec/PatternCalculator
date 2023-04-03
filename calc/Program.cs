@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace calc
 {
@@ -54,6 +55,11 @@ namespace calc
                         break;
                     case "redo":
                         pult.PressCancel(0);
+                        break;
+                    default:
+                        MessageBox.Show("Неправильный ввод");
+                        current = Console.ReadLine();
+                        pult.SetCurrent(int.Parse(current));
                         break;
                 }
                 Oper = Console.ReadLine();
