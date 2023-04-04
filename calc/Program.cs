@@ -12,6 +12,7 @@ namespace calc
         static void Main(string[] args)
         {
             //0 redo 1 undo   // 0 minus 1 plus 
+            int Check = 0;
             Calc calc = new Calc();
             calc.Current = 0;
             pult pult = new pult();
@@ -21,8 +22,22 @@ namespace calc
             pult.SetCommand(1, new CalcHardCommand(calc));
             pult.SetChange(0, new CalcCancel(calc));
             Console.WriteLine("0");
-            string current = Console.ReadLine();
-            pult.SetCurrent(int.Parse(current));
+            string current = "";
+            while (Check == 0)
+            {
+                current = Console.ReadLine();
+                try
+                {
+                    pult.SetCurrent(int.Parse(current));
+                    Check = 1;
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("Неправильный ввод");
+                    Check = 0;
+                }
+
+            }
             string Oper = Console.ReadLine();
 
             while (Oper != "")
